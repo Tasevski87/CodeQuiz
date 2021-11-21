@@ -1,0 +1,19 @@
+.title {
+    color: darkblue;
+    font-size: 20px;
+}
+
+.questions {
+    margin-top: 250px;
+    padding-left: 600px;
+    
+}
+.term {
+    font-size: 40px;
+}
+.list {
+    display: inline-block;
+    width: 100px;
+
+    
+}
