@@ -1,3 +1,4 @@
+//created an array of questions
 var quiz = [
     {
         question: 'Communly used data types do not include ____',
@@ -22,6 +23,7 @@ var quiz = [
     },
 ]
 
+// times is set to 1 min or 60s and score to 0
 var timer = 60;
 var score = 0;
 
@@ -35,15 +37,16 @@ var finish = document.querySelector('.finish')
 
 startBtn.addEventListener('click', startQuiz)
 
+// created a function to start the game 
 function startQuiz() {
     startingScreen.setAttribute('class', 'hidden')
     startTimer()
     renderQuestionOne()
 }
-
+// created timer for the quiz
 function startTimer() {
     time.textContent = timer
-    var setTimer = setInterval(function() {
+    var setTimer = setInterval(function () {
         timer--
         time.textContent = timer
         if (timer === 0) {
@@ -52,6 +55,8 @@ function startTimer() {
     }, 1000)
 }
 
+
+// this function is rendering the first question 
 function renderQuestionOne() {
     question.textContent = quiz[0].question
 
@@ -61,10 +66,10 @@ function renderQuestionOne() {
         li.textContent = quiz[0].options[i]
         answers.append(li)
 
-        li.addEventListener('click', function(event) {
+        li.addEventListener('click', function (event) {
             if (event.target.id === quiz[0].correct) {
                 console.log('correct answer');
-                score += 25
+                score += 25;
             } else {
                 console.log('incorrect answer');
                 timer -= 10
@@ -73,7 +78,7 @@ function renderQuestionOne() {
         })
     }
 }
-
+// this function is rendering the second question 
 function renderQuestionTwo() {
     question.textContent = ''
     answers.textContent = ''
@@ -85,7 +90,7 @@ function renderQuestionTwo() {
         li.textContent = quiz[1].options[i]
         answers.append(li)
 
-        li.addEventListener('click', function(event) {
+        li.addEventListener('click', function (event) {
             if (event.target.id === quiz[1].correct) {
                 console.log('correct answer');
                 score += 25
@@ -97,7 +102,7 @@ function renderQuestionTwo() {
         })
     }
 }
-
+// this function is rendering the third question 
 function renderQuestionThree() {
     question.textContent = ''
     answers.textContent = ''
@@ -109,9 +114,9 @@ function renderQuestionThree() {
         li.textContent = quiz[2].options[i]
         answers.append(li)
 
-        li.addEventListener('click', function(event) {
+        li.addEventListener('click', function (event) {
             if (event.target.id === quiz[2].correct) {
-                console.log=('correct answer');
+                console.log = ('correct answer');
                 score += 25
             } else {
                 console.log('incorrect answer');
@@ -121,43 +126,46 @@ function renderQuestionThree() {
         })
     }
 }
+// this function is rendering the fourth question 
 function renderQuestionFour() {
     question.textContent = ''
     answers.textContent = ''
 
     question.textContent = quiz[3].question
-    for (var i = 0; i < quiz[2].options.length; i++) {
+    for (var i = 0; i < quiz[3].options.length; i++) {
         var li = document.createElement('li')
         li.setAttribute('id', quiz[3].options[i])
-        li.textContent = quiz[2].options[i]
+        li.textContent = quiz[3].options[i]
         answers.append(li)
 
-        li.addEventListener('click', function(event) {
+        li.addEventListener('click', function (event) {
             if (event.target.id === quiz[3].correct) {
                 console.log('Correct answer!');
                 score += 25
             } else {
                 console.log('incorrect answer');
                 timer -= 10
+
             }
-            
+
             endQuiz()
-            
+
         })
     }
 }
 
+//this function is ending our quiz and asking for initial and storing them in local storage
 function endQuiz() {
-    question.textContent = ''
-    answers.textContent = ''
+    question.textContent = '';
+    answers.textContent = '';
 
-    var input = document.createElement('input')
-    input.setAttribute('placeholder', 'Your initials.')
-    var submitBtn = document.createElement('button')
-    submitBtn.textContent = 'Submit'
-    form.append(input, submitBtn)
+    var input = document.createElement('input');
+    input.setAttribute('placeholder', 'Your initials.');
+    var submitBtn = document.createElement('button');
+    submitBtn.textContent = 'Submit';
+    form.append(input, submitBtn);
 
-    submitBtn.addEventListener('click', function(event) {
+    submitBtn.addEventListener('click', function (event) {
         event.preventDefault()
 
         var storage = JSON.parse(localStorage.getItem('highscore'))
