@@ -35,7 +35,7 @@ var form = document.querySelector('.user');
 var time = document.querySelector('.time');
 var finish = document.querySelector('.finish')
 
-startBtn.addEventListener('click', startQuiz)
+startBtn.addEventListener('click', startQuiz);
 
 // created a function to start the game 
 function startQuiz() {
@@ -51,6 +51,7 @@ function startTimer() {
         time.textContent = timer
         if (timer === 0) {
             clearInterval(setTimer)
+            time.textContent = "Time is up !"
         }
     }, 1000)
 }
@@ -118,6 +119,7 @@ function renderQuestionThree() {
             if (event.target.id === quiz[2].correct) {
                 console.log = ('correct answer');
                 score += 25
+            
             } else {
                 console.log('incorrect answer');
                 timer -= 10
@@ -149,7 +151,7 @@ function renderQuestionFour() {
             }
 
             endQuiz()
-
+            question.textContent = "All done!"
         })
     }
 }
@@ -168,7 +170,7 @@ function endQuiz() {
     submitBtn.addEventListener('click', function (event) {
         event.preventDefault()
 
-        var storage = JSON.parse(localStorage.getItem('highscore'))
+        var storage = JSON.parse(localStorage.getItem('highScore'))
         if (storage === null) {
             storage = []
         }
@@ -177,6 +179,6 @@ function endQuiz() {
             currentScore: score
         }
         storage.push(currentUser)
-        localStorage.setItem('highscore', JSON.stringify(storage))
+        localStorage.setItem('highScore', JSON.stringify(storage))
     })
 }
