@@ -170,7 +170,7 @@ function endQuiz() {
     submitBtn.addEventListener('click', function (event) {
         event.preventDefault()
 
-        var storage = JSON.parse(localStorage.getItem('highScore'))
+        var storage = JSON.parse(localStorage.getItem('highscore'))
         if (storage === null) {
             storage = [];
         }
@@ -179,6 +179,6 @@ function endQuiz() {
             currentScore: score
         }
         storage.push(currentUser);
-        localStorage.setItem('highScore', JSON.stringify(storage))
+        localStorage.setItem('highscore', JSON.stringify(storage))
     })
 }
