@@ -8,9 +8,11 @@
 
 
 Github Repo Link
+https://github.com/Tasevski87/CodeQuiz
 
 
 Github Pages URL
+https://tasevski87.github.io/CodeQuiz/
 
 
 
