@@ -3,22 +3,22 @@ var quiz = [
     {
         question: 'Communly used data types do not include ____',
         options: ['1. Strings', '2. Booleans', '3. Alerts', '4. Numbers'],
-        correct: 'answer 1 of 1'
+        correct: '3. Alerts'
     },
     {
         question: 'Arrays in JavaScript can be used to store ____',
         options: ['1. Numbers and Strings', '2. Other Arrays', '3. Booleans', '4. All of the above'],
-        correct: 'answer 2 of 2'
+        correct: '4. All of the above'
     },
     {
         question: 'String value must be enclosed with ____ when being assigned to variables',
         options: ['1. Commas', '2. Curley brackets', '3. Quotes', '4. Parenthasis'],
-        correct: 'answer 3 of 3'
+        correct: '3. Quotes'
     },
     {
         question: 'The condition in an if/else statement is enclosed with ____',
         options: ['1. Quotes', '2. Curley brackets', '3. Parenthasis', '4. Squere brackets'],
-        correct: 'answer 4 of 4'
+        correct: '3. Parenthasis'
 
     },
 ]
@@ -62,7 +62,7 @@ function renderQuestionOne() {
     question.textContent = quiz[0].question;
 
     for (var i = 0; i < quiz[0].options.length; i++) {
-        var li = document.createElement('li');
+        var li = document.createElement('button');
         li.setAttribute('id', quiz[0].options[i]);
         li.textContent = quiz[0].options[i];
         answers.append(li);
@@ -86,7 +86,7 @@ function renderQuestionTwo() {
 
     question.textContent = quiz[1].question;
     for (var i = 0; i < quiz[1].options.length; i++) {
-        var li = document.createElement('li');
+        var li = document.createElement('button');
         li.setAttribute('id', quiz[1].options[i]);
         li.textContent = quiz[1].options[i];
         answers.append(li);
@@ -110,14 +110,14 @@ function renderQuestionThree() {
 
     question.textContent = quiz[2].question
     for (var i = 0; i < quiz[2].options.length; i++) {
-        var li = document.createElement('li');
+        var li = document.createElement('button');
         li.setAttribute('id', quiz[2].options[i]);
         li.textContent = quiz[2].options[i];
         answers.append(li)
 
         li.addEventListener('click', function (event) {
             if (event.target.id === quiz[2].correct) {
-                console.log = ('correct answer');
+                console.log('correct answer');
                 score += 25;
             
             } else {
@@ -132,10 +132,9 @@ function renderQuestionThree() {
 function renderQuestionFour() {
     question.textContent = '';
     answers.textContent = '';
-
     question.textContent = quiz[3].question
     for (var i = 0; i < quiz[3].options.length; i++) {
-        var li = document.createElement('li');
+        var li = document.createElement('button');
         li.setAttribute('id', quiz[3].options[i]);
         li.textContent = quiz[3].options[i];
         answers.append(li);
@@ -149,7 +148,6 @@ function renderQuestionFour() {
                 timer -= 10;
 
             }
-
             endQuiz()
             question.textContent = "All done!";
         })
@@ -160,7 +158,7 @@ function renderQuestionFour() {
 function endQuiz() {
     question.textContent = '';
     answers.textContent = '';
-
+    timer = 1;
     var input = document.createElement('input');
     input.setAttribute('placeholder', 'Your initials.');
     var submitBtn = document.createElement('button');

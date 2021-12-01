@@ -28,3 +28,14 @@
 .term {
     font-size: 30px;
 }
+
+li {
+    list-style: none;
+    cursor: pointer;
+    align-items: center;
+}
+button{
+    display:list-item;
+    cursor: pointer;
+    
+}
